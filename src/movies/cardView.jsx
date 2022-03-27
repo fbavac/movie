@@ -150,7 +150,8 @@ import {useSelector, useDispatch} from 'react-redux';
                             <div class="container">
                                 <h4><b>{listValue.title}</b></h4> 
                                 <h5>Rank: <span style={{color:"green"}}>{listValue.rank}</span></h5> 
-                                <h6>Released: {listValue.releaseDate}</h6> 
+                                <h6>Released: {listValue.releaseDate}</h6>
+                                <h6>Type: {listValue.type}</h6> 
                                 <p>{listValue.synopsis}</p>
                             </div>
                             </div>
