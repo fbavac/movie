@@ -24,11 +24,9 @@ import {useSelector, useDispatch} from 'react-redux';
     
     useEffect( () => {
         setMovies(data);
-        console.log(movies)      
         const rank = new URLSearchParams(window.location.search).get('rank');
         if(rank){
             const rankFilter = data.filter((item) => item.rank == rank)
-            console.log("saj",rankFilter)
             rankFilter.length === 0 ? alert("No movie found on rank "+ rank) : setMovies(rankFilter);
             
         }
@@ -65,35 +63,35 @@ import {useSelector, useDispatch} from 'react-redux';
  
     return(
         <>        
-        <div class="container" style={{background:"Black", padding:"100px"}}>
+        <div className="container" style={{background:"Black", padding:"100px"}}>
             {/* ------sort filter------------- */}
 
             <div className="row">
-                <div class="col-lg-12">
+                <div className="col-lg-12">
                     <div style={{float:"right"}} >
 
                         {/* -----sort add popup----- */}
                         <Popup  trigger={ <button className="btn btn-success" style={{margin:"10px"}}  position="right center">Add New Sort +</button>
                         } position="center right"  open={sortPopup}>
                             <div >
-                                <div class="card">
+                                <div className="card">
                                     <form >
                                             <table>
+                                                <tbody>
                                             <tr>
                                                 <th><label>Options</label></th>
                                                 <td>
                                                 <select value={addedSort} className="" onChange={(e)=>AddSortOption(e.target.value)} >
                                                 {movies[0] && Object.keys(movies[0]).map((listValue,index) => {
-                                                return ( <>
-                                                    {listValue != "imageUrl" &&
-                                                    <option value={listValue}>{listValue.charAt(0).toUpperCase() + listValue.slice(1)}</option>
-                                                    }
-                                                    </>)
+                                                return ( 
+                                                    <option value={listValue} key={index}>{listValue.charAt(0).toUpperCase() + listValue.slice(1)}</option>
+                                                    )
                                                 })}
                                                 </select>
                                                 </td>
                                             </tr>
                                             <tr><button className="btn btn-success" onClick={(e) => updateSortOption(e)} >Add</button></tr>
+                                            </tbody>
                                         </table>
                                     </form>
                                 </div>
@@ -104,9 +102,9 @@ import {useSelector, useDispatch} from 'react-redux';
                         {/* ----sort dropdown---- */}
                         <select value={sort} className="form-select" onChange={e => dropSort(e.target.value)}>
                             {sortOrder.map((sortValue, index) => {
-                            return ( <>
-                                <option value={sortValue.valueToOrderBy} >{sortValue.label.charAt(0).toUpperCase() + sortValue.label.slice(1)}</option>
-                                </>)
+                            return (
+                                <option value={sortValue.valueToOrderBy} key={index}>{sortValue.label.charAt(0).toUpperCase() + sortValue.label.slice(1)}</option>
+                                )
                             })}
                         </select>
                         {/* ------------------- */}
@@ -117,7 +115,7 @@ import {useSelector, useDispatch} from 'react-redux';
                     <Popup trigger={ <button className="btn btn-success">Add New Movie</button>                
                         } open={movieAddPopup} position="center right">
                         <div>
-                        <div class="card" style={{width:"510px", paddingLeft:"50px",paddingTop:"240px",paddingBottom:"33px",background:"#808080"}}>
+                        <div className="card" style={{width:"510px", paddingLeft:"50px",paddingTop:"240px",paddingBottom:"33px",background:"#808080"}}>
                             <Form/>
                         </div>
                         </div>
@@ -129,25 +127,26 @@ import {useSelector, useDispatch} from 'react-redux';
             {/* ---------------------------- */}
 
             {/* -------movie card view------ */}
-            <div class="row">
+            <div className="row">
                 {movies.map((listValue, index) => {
                     return ( 
+                        
                         <Popup trigger={ 
-                        <div class="col-lg-3"  key={index} style={{marginTop:"10px"}}>
-                            <div class="card">
+                        <div className="col-lg-3"   style={{marginTop:"10px"}}>
+                            <div className="card">
                             <img src={listValue.imageUrl} width={"100%"} />
-                            <div class="container">
+                            <div className="container">
                                 <h5><b>{listValue.title}</b></h5> 
                                 <h6>Rank: <span style={{color:"green"}}>{listValue.rank}</span></h6>
                                 <p>Released: {listValue.releaseDate}</p> 
                             </div>
                             </div>
                         </div> 
-                        } position="center">
+                        } position="center" key={index}>
                         <div>
-                        <div class="card" style={{width:"300px"}}>
+                        <div className="card" style={{width:"300px"}}>
                             <img src={listValue.imageUrl} width={"100%"} />
-                            <div class="container">
+                            <div className="container">
                                 <h4><b>{listValue.title}</b></h4> 
                                 <h5>Rank: <span style={{color:"green"}}>{listValue.rank}</span></h5> 
                                 <h6>Released: {listValue.releaseDate}</h6>

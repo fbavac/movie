@@ -30,9 +30,13 @@ const movieReducer = (state = {data: data}, action) => {
             sort : state.sort
         }
     }
+    
+    const movieList = state.data.data.components.filter((item) => item.type == "movie-list")
+    const sortList = state.data.data.components.filter((item) => item.type == "order-select")
     return  {
-                data: state.data.data.components[1].items,
-                sort: state.data.data.components[0].items
+                
+                data: movieList[0].items,
+                sort: sortList[0].items
             }
 }
 

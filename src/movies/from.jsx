@@ -11,7 +11,6 @@ function Form(props){
 
     const data = useSelector(state => state.data);
     const sortOrder = useSelector(state => state.sort);
-    console.log("testsetse", data)
     const dispatch = useDispatch()
 
 
@@ -29,18 +28,19 @@ function Form(props){
     };
 
     return(
-            <div class="container" style={{background:"grey"}}>
-                <div class="row">
-                <div class="col-lg-12" >
+            <div className="container" style={{background:"grey"}}>
+                <div className="row">
+                <div className="col-lg-12" >
                     <h5 style={{textAlign:"center"}}>Add New Movie</h5>
                     <form >
                         <table>
+                        <tbody>
                         <tr>
                             <th><label>Title: </label></th>
                             <td><input 
                                 type="text" 
                                 name="title" 
-                                class="form-control" 
+                                className="form-control" 
                                 // value={inputs.username || ""} 
                                 onChange={handleChange}
                             /></td>
@@ -50,7 +50,7 @@ function Form(props){
                             <td><input 
                                 type="number" 
                                 name="rank"
-                                class="form-control"  
+                                className="form-control"  
                                 // value={inputs.username || ""} 
                                 onChange={handleChange}
                             /></td>
@@ -60,7 +60,7 @@ function Form(props){
                             <td><input 
                                 type="text" 
                                 name="imageUrl" 
-                                class="form-control" 
+                                className="form-control" 
                                 // value="https://preview.ibb.co/fn5Xyp/raiders.jpg" 
                                 onChange={handleChange}
                             /></td>
@@ -70,7 +70,7 @@ function Form(props){
                             <td><input 
                                 type="number" 
                                 name="releaseDate" 
-                                class="form-control" 
+                                className="form-control" 
                                 // value={inputs.username || ""} 
                                 onChange={handleChange}
                             /></td>
@@ -80,7 +80,7 @@ function Form(props){
                             <td><textarea 
                                 type="text" 
                                 name="synopsis" 
-                                class="form-control" 
+                                className="form-control" 
                                 // value={inputs.username || ""} 
                                 onChange={handleChange}
                             /></td>
@@ -89,6 +89,7 @@ function Form(props){
                             <th><label></label></th>
                             <td><button className="btn btn-success" onClick={addHandler} >Add</button></td>
                         </tr>
+                        </tbody>
                         </table>    
                     </form>
                 </div>
