@@ -7,7 +7,7 @@ import 'reactjs-popup/dist/index.css';
  function MovieList(){
     
     return(
-        <div style={{background:"grey"}}>
+        <div className="movie-list-bg">
             <CardView/>
         </div>       
 

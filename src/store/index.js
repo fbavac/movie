@@ -15,8 +15,19 @@ const movieReducer = (state = {data: data}, action) => {
                         "title": action.formData.title,
                         "imageUrl": action.formData.imageUrl,
                         "releaseDate": action.formData.releaseDate, }
+        
+        // validate formData
+        const isNullish = Object.values(action.formData).every(value => {
+        if (value == '') {
+            return true;
+        }                          
+        return false;
+        });
 
-        state.data =  state.data.concat(newData);
+        if(!isNullish){
+            state.data =  state.data.concat(newData);
+        }
+        
         return{
             data:state.data,
             sort:state.sort

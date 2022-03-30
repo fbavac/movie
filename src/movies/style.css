@@ -45,4 +45,19 @@
     padding-top:"600px";
     padding-bottom:"100px";
   }
+  .movie-list-bg{
+    background: grey;
+  }
+
+  .form-bg{
+    background:#b5aeae
+  }
+
+  .cardview-from{
+    width:"510px";
+    padding-left:"50px";
+    padding-top:"240px";
+    padding-bottom:"33px";
+    background:"#b5aeae"
+  }
 

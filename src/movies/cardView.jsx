@@ -115,7 +115,7 @@ import {useSelector, useDispatch} from 'react-redux';
                     <Popup trigger={ <button className="btn btn-success">Add New Movie</button>                
                         } open={movieAddPopup} position="center right">
                         <div>
-                        <div className="card" style={{width:"510px", paddingLeft:"50px",paddingTop:"240px",paddingBottom:"33px",background:"#808080"}}>
+                        <div className="card" style={{width:"510px", paddingLeft:"50px",paddingTop:"240px",paddingBottom:"33px",background:"#b5aeae"}}>
                             <Form/>
                         </div>
                         </div>
