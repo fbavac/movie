@@ -8,14 +8,15 @@ const data = {
 const movieReducer = (state = {data: data}, action) => {
     
     if(action.type === "add"){  //add movie
-        const newData = {"id": 15,
+        const MaxId =  Math.max.apply(Math, state.data.map(function(o) { return o.id; }))
+        const newData = {"id": MaxId+1,
                         "type": "poster",
                         "rank": action.formData.rank,
                         "synopsis": action.formData.synopsis,
                         "title": action.formData.title,
                         "imageUrl": action.formData.imageUrl,
                         "releaseDate": action.formData.releaseDate, }
-        
+
         // validate formData
         const isNullish = Object.values(action.formData).every(value => {
         if (value == '') {
